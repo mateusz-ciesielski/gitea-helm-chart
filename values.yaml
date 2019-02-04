@@ -81,13 +81,13 @@ resources:
 ## ref:
 ##
 persistence:
-  enabled: false
+  enabled: true
   #existingGiteaClaim: gitea-gitea
   #existingPostgresClaim: gitea-postgres
   giteaSize: 10Gi
   postgresSize: 5Gi
-  #storageClass: glusterfs
-  accessMode: ReadWriteMany
+  #storageClass: ""
+  accessMode: ReadWriteOnce
 ## addtional annotations for hte pvcs  uncommenting below will prevent helm from deleting the pvc when hte chart is deleted
 #  annotations:
 #    "helm.sh/resource-policy": keep
@@ -160,5 +160,5 @@ podAnnotations: {}
 
 ## In order to disable initial install screen you must have secretKey and disableInstaller=true
 config:
-#  secretKey: define_your_secret
-  disableInstaller: false
+  secretKey: ""
+  disableInstaller: true

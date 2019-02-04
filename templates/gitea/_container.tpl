@@ -16,21 +16,21 @@ Create helm partial for gitea server
     containerPort: {{ .Values.service.ssh.port  }}
   - name: http
     containerPort: {{ .Values.service.http.port  }}
-  livenessProbe:
-    tcpSocket:
-      port: http
-    initialDelaySeconds: 200
-    timeoutSeconds: 1
-    periodSeconds: 10
-    successThreshold: 1
-    failureThreshold: 10
-  readinessProbe:
-    tcpSocket:
-      port: http
-    initialDelaySeconds: 5
-    periodSeconds: 10
-    successThreshold: 1
-    failureThreshold: 3
+  # livenessProbe:
+  #   tcpSocket:
+  #     port: http
+  #   initialDelaySeconds: 200
+  #   timeoutSeconds: 1
+  #   periodSeconds: 10
+  #   successThreshold: 1
+  #   failureThreshold: 10
+  # readinessProbe:
+  #   tcpSocket:
+  #     port: http
+  #   initialDelaySeconds: 5
+  #   periodSeconds: 10
+  #   successThreshold: 1
+  #   failureThreshold: 10
   resources:
 {{ toYaml .Values.resources.gitea | indent 10 }}
   volumeMounts:

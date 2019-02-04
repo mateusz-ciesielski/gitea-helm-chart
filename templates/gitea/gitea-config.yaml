@@ -20,7 +20,7 @@ data:
     ; Change it if you run locally
     RUN_USER = git
     ; Either "dev", "prod" or "test", default is "dev"
-    RUN_MODE = dev
+    RUN_MODE = prod
 
     [repository]
     ROOT =
@@ -95,7 +95,7 @@ data:
     ; Whether the email of the user should be shown in the Explore Users page
     SHOW_USER_EMAIL = true
     ; Set the default theme for the Gitea install
-    DEFAULT_THEME = gitea
+    DEFAULT_THEME = arc-green
 
 
     [ui.admin]
@@ -150,7 +150,7 @@ data:
     ROOT_URL = %(PROTOCOL)s://%(DOMAIN)s:%(HTTP_PORT)s/
     {{- end -}}
     ; The address to listen on. Either a IPv4/IPv6 address or the path to a unix socket.
-    HTTP_ADDR = 0.0.0.0
+    HTTP_ADDR = 127.0.0.1
     HTTP_PORT = {{ .Values.service.http.port }}
     ; If REDIRECT_OTHER_PORT is true, and PROTOCOL is set to https an http server
     ; will be started on PORT_TO_REDIRECT and it will redirect plain, non-secure http requests to the main
@@ -523,7 +523,7 @@ data:
     ; Buffer length of the channel, keep it as it is if you don't know what it is.
     BUFFER_LEN = 10000
     ; Either "Trace", "Debug", "Info", "Warn", "Error", "Critical", default is "Trace"
-    LEVEL = Critical
+    LEVEL = Info
 
     ; For "console" mode only
     [log.console]
